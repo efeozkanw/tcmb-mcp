@@ -1,0 +1,61 @@
+{
+  "name": "tcmb-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for the official daily exchange rates of the Central Bank of the Republic of Türkiye (TCMB)",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "tcmb",
+    "exchange-rates",
+    "doviz-kuru",
+    "turkish-lira",
+    "e-fatura"
+  ],
+  "homepage": "https://github.com/efeozkanw/tcmb-mcp#readme",
+  "bugs": "https://github.com/efeozkanw/tcmb-mcp/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/efeozkanw/tcmb-mcp.git"
+  },
+  "license": "MIT",
+  "author": "efeozkanw",
+  "type": "module",
+  "mcpName": "io.github.efeozkanw/tcmb-mcp",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "tcmb-mcp": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "test": "vitest run",
+    "test:live": "TCMB_LIVE=1 vitest run test/live.test.ts",
+    "inspect": "npm run build && npx -y @modelcontextprotocol/inspector node dist/cli.js",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.4.0",
+    "fast-xml-parser": "^5.12.1",
+    "zod": "^4.2.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.8",
+    "@modelcontextprotocol/client": "^2.4.0",
+    "@types/node": "^22.19.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.1"
+  }
+}
