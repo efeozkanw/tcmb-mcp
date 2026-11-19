@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.efeozkanw/tcmb-mcp",
+  "title": "TCMB exchange rates",
+  "description": "Official daily exchange rates of the Central Bank of the Republic of Türkiye (TCMB)",
+  "repository": {
+    "url": "https://github.com/efeozkanw/tcmb-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "tcmb-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
